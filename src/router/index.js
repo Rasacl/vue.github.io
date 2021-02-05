@@ -12,9 +12,13 @@ Vue.use(Router);
 export default new Router({
    routes:
    [
+    {
+      path:'/user',
+      component:User
+    },
      {
-    path:'/user',
-    component:User
+    path:'/',
+    redirect:'/user'
   },
   {
     path:'/organ',
