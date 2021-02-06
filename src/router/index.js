@@ -6,7 +6,6 @@ import Lication from "../views/Lication.vue";
 import Program from "../views/Program.vue";
 import Authouity from "../views/Authouity.vue";
 import Users from "../views/Users.vue";
-import Add from "../views/Add.vue";
 
 
 Vue.use(Router);
@@ -17,12 +16,6 @@ export default new Router({
     {
       path:'/user',
       component:User,
-      children:[
-        {
-          path:'add',
-          component:Add
-        }
-      ]
     },
      {
     path:'/',
