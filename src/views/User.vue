@@ -11,7 +11,9 @@
         <p class="names">用户名</p>
         <el-input v-model="input" placeholder="请输入内容" style="width:220px" class="search"></el-input>
          <el-button type="primary" style="height:40px">查询</el-button>
-          <el-button type="primary" style="height:40px">新增</el-button>
+         <router-link to="/user/add">
+          <el-button type="primary" style="height:40px" class="button" @click="open">新增</el-button>
+         </router-link>
     </div>
     <div class="lis" ref="data">
          <el-table
@@ -116,7 +118,40 @@ export default {
       },
        changeHeight(dataHeight){
               this.$refs.data.style.height = (dataHeight - 228) + 'px';
-         }
+         },
+         open() {
+        const h = this.$createElement;
+        this.$msgbox({
+          title: '消息',
+          message: h('p', null, [
+            h('span', null, '内容可以是 '),
+            h('i', { style: 'color: teal' }, 'VNode')
+          ]),
+          showCancelButton: true,
+          cancelButtonText: '取消',
+          confirmButtonText: '确定',
+          
+          beforeClose: (action, instance, done) => {
+            if (action === 'confirm') {
+              instance.confirmButtonLoading = true;
+              instance.confirmButtonText = '执行中...';
+              setTimeout(() => {
+                done();
+                setTimeout(() => {
+                  instance.confirmButtonLoading = false;
+                }, 300);
+              }, 3000);
+            } else {
+              done();
+            }
+          }
+        }).then(action => {
+          this.$message({
+            type: 'info',
+            message: 'action: ' + action
+          });
+        });
+      }
     },
      mounted(){
        this.dataHeight = `${document.documentElement.clientHeight}`;
@@ -167,6 +202,9 @@ export default {
      padding-left: 10px;
      box-sizing: border-box;
      margin-bottom: 10px;
+ }
+ .inputs /deep/ .button{
+     margin-left: 10px;
  }
  .names{
      font-size: 17px;
