@@ -24,8 +24,8 @@
         style="height:40px"
         class="button"
         @click="
+          dialogFormVisible1 = true
           remove;
-          dialogFormVisible1 = true;
         "
         >新增</el-button
       >
@@ -100,12 +100,14 @@
             type="primary"
             @click="
               dialogFormVisible = false;
-              centerDialogVisible = true;
+              centerDialogVisible = true
               downup
             "
             >确 定</el-button
           >
-          <el-dialog
+        </div>
+      </el-dialog>
+      <el-dialog
   title="提示"
   :visible.sync="centerDialogVisible"
   width="30%"
@@ -116,12 +118,10 @@
     <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
   </span>
 </el-dialog>
-        </div>
-      </el-dialog>
       <!-- </router-link> -->
     </div>
     <div class="lis" ref="data">
-      <el-table :data="tableData" style="width: 99%" class="listall">
+      <el-table :data="tableData" class="listall">
         <el-table-column
           align="center"
           class="first"
@@ -248,6 +248,7 @@
 export default {
   data() {
     return {
+        down:true,
       show: true,
       dialogTableVisible: false,
       dialogFormVisible: false,
@@ -305,7 +306,7 @@ export default {
   },
   methods: {
     downup(){
-      this.dialogFormVisible1 = true;
+        this.dialogTableVisible1 = false;
     },
     remove() {
       this.show = !this.show;

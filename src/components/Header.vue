@@ -6,7 +6,8 @@
       普洱水情测报系统
     </h1>
 
-    <el-menu
+   <div class="bool">
+      <el-menu
       :default-active="activeIndex8"
       class="el-menu-demo list"
       mode="horizontal"
@@ -29,6 +30,8 @@
       <p class="translate">LUXISZR</p>
       <i class="el-icon-arrow-down icon"></i>
     </div>
+   </div>
+    
   </div>
 </template>
 
@@ -55,9 +58,13 @@ export default {
   height: 80px;
   line-height: 80px;
   margin: 0;
+  justify-content: space-between;
 }
 .title {
   color: #fff;
+}
+.bool{
+  display: flex;
 }
 .list {
   // box-sizing: border-box;
@@ -67,12 +74,15 @@ export default {
 .list /deep/ .item {
   // width: 150px;
   height: 80px;
-  font-size: 20px;
+  // width: 12%;
+  font-size: 16px;
   line-height: 80px;
   text-align: center;
   padding: 0 10px;
 }
 .right {
+  // position: relative;
+  // right: -26px;
   display: flex;
   justify-content: center;
   align-items: center;
