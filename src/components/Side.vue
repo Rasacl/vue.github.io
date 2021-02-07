@@ -137,7 +137,7 @@ watch: {
 .seclect li /deep/ .link{
    padding-left: 10px;
 }
-.seclect li /deep/ .link:active{
+.seclect li[data-v-39eff3f2]:hover{
   background: #eeeeee;
 }
 </style>

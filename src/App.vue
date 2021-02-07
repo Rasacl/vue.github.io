@@ -37,6 +37,9 @@ export default {
   list-style: none;
   text-decoration: none;
 }
+bady{
+  background: #fff;
+}
     .el-header{
     background: #1890ff;
     height: 80px!important;

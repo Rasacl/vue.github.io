@@ -108,11 +108,11 @@
         </div>
       </el-dialog>
       <el-dialog
-  title="提示"
+  title="系统提示"
   :visible.sync="centerDialogVisible"
   width="30%"
   center>
-  <span>需要注意的是内容是默认不居中的</span>
+  <span>您将恢复用户的密码为初始密码，初始密码：12345，将发送至此用户的邮箱，是否确认发送</span>
   <span slot="footer" class="dialog-footer">
     <el-button @click="centerDialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
@@ -121,31 +121,31 @@
       <!-- </router-link> -->
     </div>
     <div class="lis" ref="data">
-      <el-table :data="tableData" class="listall">
+      <el-table :data="tableData" class="listall" style="100%">
         <el-table-column
           align="center"
           class="first"
           prop="name"
           label="姓名"
-          width="155"
+        
         >
         </el-table-column>
-        <el-table-column prop="username" label="姓名" width="155">
+        <el-table-column prop="username" label="姓名" align="center">
         </el-table-column>
-        <el-table-column prop="ipone" label="手机号" width="155">
+        <el-table-column prop="ipone" label="手机号" align="center">
         </el-table-column>
-        <el-table-column prop="email" label="邮箱" width="155">
+        <el-table-column prop="email" label="邮箱" align="center">
         </el-table-column>
-        <el-table-column prop="state" label="状态" width="155">
+        <el-table-column prop="state" label="状态" align="center">
         </el-table-column>
         <el-table-column
           align="center"
           prop="time"
           label="注册时间"
-          width="165"
+        
         >
         </el-table-column>
-        <el-table-column align="center" label="操作" width="165">
+        <el-table-column align="center" label="操作">
           <template slot-scope="scope">
             <el-button type="text" @click="dialogFormVisible = true"
               >修改</el-button
@@ -231,7 +231,7 @@
               @click.native.prevent="deleteRow(scope.$index, tableData)"
               type="text"
               size="small"
-              @click="dialogFormVisible = true"
+             
               >删除</el-button
             >
           </template>
@@ -440,15 +440,14 @@ export default {
   margin-right: 10px;
 }
 .lis {
-  width: 98%;
   height: 100%;
-  margin-left: 1%;
+  margin:0 1%;
   background: #fff;
 }
 .lis /deep/ .first {
   background: #bfbfbf;
 }
-.next {
-  margin-left: 6px;
-}
+// .next {
+//   margin-left: 6px;
+// }
 </style>
