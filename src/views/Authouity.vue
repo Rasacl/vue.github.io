@@ -15,15 +15,72 @@
             <el-option label="区域二" value="beijing"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="用户名">
-          <el-select v-model="form.region" placeholder="请输入">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-button type="primary" style="height: 40px">查询</el-button>
-        <el-button type="primary" style="height: 40px">添加用户</el-button>
+        <el-button type="primary" style="height: 40px" @click="dialogFormVisible1 = true">新增</el-button>
       </el-form>
+      <div class="uesradd">
+        <el-dialog title="收货地址" :visible.sync="dialogFormVisible1">
+  <el-form :model="form1">
+     <el-form-item>
+        <span>名称</span>
+      <el-input v-model="form1.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item>
+        <span>地址</span>
+      <el-input v-model="form1.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>是否需要登陆</span>
+      <el-select v-model="form1.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>是否需要token</span>
+      <el-select v-model="form1.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>排序</span>
+      <el-select v-model="form1.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="time">
+        <span>创建时间</span>
+    <el-date-picker
+      v-model="value2"
+      type="date"
+      placeholder="选择日期">
+    </el-date-picker>
+    </el-form-item>
+    <el-form-item class="last">
+      
+      <el-upload
+  class="upload-demo"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  :on-preview="handlePreview"
+  :on-remove="handleRemove"
+  :before-remove="beforeRemove"
+  multiple
+  :limit="3"
+  :on-exceed="handleExceed"
+  :file-list="fileList">
+   <p class="text">权限图标</p>
+  <el-button size="small" type="primary" class="up">点击上传</el-button>
+  <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+</el-upload>
+    </el-form-item>
+  </el-form>
+  <div slot="footer" class="dialog-footer">
+    <el-button type="primary" @click="dialogFormVisible1 = false">保存</el-button>
+    <el-button @click="dialogFormVisible1 = false">取消</el-button>
+  </div>
+</el-dialog>
+      </div>
   </div>
   <div class="list" ref="auth">
       <el-table :data="tableData" style="width: 100%">
@@ -56,6 +113,70 @@
           </template>
         </el-table-column>
       </el-table>
+       <div class="userserr">
+ <el-dialog title="编辑权限数据数据基本信息" :visible.sync="dialogFormVisible">
+  <el-form :model="form">
+    <el-form-item>
+        <span>名称</span>
+      <el-input v-model="form.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item>
+        <span>地址</span>
+      <el-input v-model="form.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>是否需要登陆</span>
+      <el-select v-model="form.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>是否需要token</span>
+      <el-select v-model="form.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="select">
+        <span>排序</span>
+      <el-select v-model="form.region" placeholder="请选择">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item class="time">
+        <span>创建时间</span>
+    <el-date-picker
+      v-model="value1"
+      type="date"
+      placeholder="选择日期">
+    </el-date-picker>
+    </el-form-item>
+    <el-form-item class="last">
+      
+      <el-upload
+  class="upload-demo"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  :on-preview="handlePreview"
+  :on-remove="handleRemove"
+  :before-remove="beforeRemove"
+  multiple
+  :limit="3"
+  :on-exceed="handleExceed"
+  :file-list="fileList">
+   <p class="text">权限图标</p>
+  <el-button size="small" type="primary">点击上传</el-button>
+  <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+</el-upload>
+    </el-form-item>
+  </el-form>
+  <div slot="footer" class="dialog-footer">
+    <el-button type="primary" @click="dialogFormVisible = false">保存</el-button>
+    <el-button @click="dialogFormVisible = false">取 消</el-button>
+  </div>
+</el-dialog>
+      </div>
       <div class="next">
         <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
       </div>
@@ -69,7 +190,46 @@
 export default {
    data(){
        return{
+          pickerOptions: {
+          disabledDate(time) {
+            return time.getTime() > Date.now();
+          },
+          shortcuts: [{
+            text: '今天',
+            onClick(picker) {
+              picker.$emit('pick', new Date());
+            }
+          }, {
+            text: '昨天',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '一周前',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', date);
+            }
+          }]
+        },
+           
+          value1:'',
+          value2:'',
+           fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
            form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        form1: {
           name: '',
           region: '',
           date1: '',
@@ -120,6 +280,8 @@ export default {
       ],
        dialogTableVisible: false,
         dialogFormVisible: false,
+         dialogTableVisible1: false,
+        dialogFormVisible1: false,
         }
        },
    methods:{
@@ -128,7 +290,19 @@ export default {
      },
      deleteRow(index, rows) {
       rows.splice(index, 1);
-   }
+   },
+   handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
+      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      },
+      beforeRemove(file, fileList) {
+        return this.$confirm(`确定移除 ${ file.name }？`);
+      }
    },
     mounted() {
     this.authheight = `${document.documentElement.clientHeight}`;
@@ -206,5 +380,99 @@ export default {
   height: 100%;
   margin: 0 1%;
   background: #fff;
+}
+.userserr /deep/ .el-dialog__body{
+    padding: 0 20px;
+}
+.userserr /deep/ .el-form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.userserr /deep/ .el-form-item{
+    width: 48%;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.userserr .select /deep/ .el-form-item__content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.userserr .select /deep/ .el-select {
+    width: 100%;
+}
+.userserr .time /deep/ .el-form-item__content{
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 35px;
+}
+.userserr .time /deep/ .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+}
+.userserr /deep/ .el-input__inner{
+    height: 35px;
+}
+.userserr .dialog-footer{
+    margin-top: 40px;
+    text-align: center;
+}
+.list /deep/ .last{
+   width: 100%;
+    background: #eaeaea;
+    margin-top: 10px;
+    padding: 10px 15px;
+}
+.list /deep/ .text{
+   text-align: left;
+   height: 30px;
+}
+.uesradd /deep/ .el-dialog__body{
+    padding: 0 20px;
+}
+.uesradd /deep/ .el-form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.uesradd /deep/ .el-form-item{
+    width: 48%;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.uesradd .select /deep/ .el-form-item__content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.uesradd .select /deep/ .el-select {
+    width: 100%;
+}
+.uesradd /deep/ .el-form-item__content{
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 35px;
+    width: 100%;
+}
+.uesradd .time /deep/ .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+}
+.uesradd /deep/ .el-input__inner{
+    height: 35px;
+}
+.uesradd .dialog-footer{
+    margin-top: 40px;
+    text-align: center;
+}
+.inputs /deep/ .last{
+   width: 100%;
+    background: #eaeaea;
+    margin-top: 10px;
+    padding: 10px 15px;
+}
+.inputs /deep/ .text{
+   text-align: left;
+   height: 30px;
+}
+.inputs /deep/ .up{
+  margin: 0;
 }
 </style>
