@@ -27,7 +27,7 @@
             <el-option label="区域二" value="beijing"></el-option>
           </el-select>
         </el-form-item>
-        <el-button type="primary" style="height: 40px" @click="remove;dialogFormVisible1 = true">新增</el-button>
+        <el-button type="primary" style="height: 40px" @click="remove()">新增</el-button>
       </el-form>
     </div>
     <div class="add">
@@ -153,8 +153,8 @@ export default {
       },
       dialogTableVisible: false,
       dialogFormVisible: false,
-      dialogTableVisible1: false,
-      dialogFormVisible1: false,
+      dialogTableVisible1: '',
+      dialogFormVisible1:'',
       form: {
         name: "",
         region: "",
@@ -273,6 +273,8 @@ export default {
   methods: {
       remove(){
             this.show = false;
+             this.dialogFormVisible1 = false;
+             this.dialogTableVisible1 = false
       },
     //   noremovw(){
     //         this.show = true;
