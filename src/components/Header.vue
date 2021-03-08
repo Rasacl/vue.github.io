@@ -31,25 +31,25 @@
       <i class="el-icon-arrow-down icon"></i>
     </div>
    </div>
-    
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header",
-  data() {
+  name: 'Header',
+  data () {
     return {
-      activeIndex: "1",
-      activeIndex8: "1"
-    };
+      activeIndex: '1',
+      activeIndex8: '1'
+    }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+    handleSelect (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

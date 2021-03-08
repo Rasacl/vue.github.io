@@ -5,7 +5,11 @@ import App from "./App";
 import router from "./router";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import './assets/gobal.css'
+import axios from 'axios'
 
+axios.defaults.baseURL = '/api'
+Vue.prototype.$http = axios
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 new Vue({

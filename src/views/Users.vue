@@ -31,7 +31,7 @@
              @click="dialogFormVisible = true"
               >修改</el-button
             >
-            <el-button type="text" 
+            <el-button type="text"
              @click.native.prevent="deleteRow(scope.$index, tableData)"
               size="small"
               >删除</el-button
@@ -51,7 +51,7 @@
 export default {
     data(){
        return{
-      
+
             form: {
           name: '',
           region: '',

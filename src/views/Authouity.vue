@@ -58,7 +58,7 @@
     </el-date-picker>
     </el-form-item>
     <el-form-item class="last">
-      
+
       <el-upload
   class="upload-demo"
   action="https://jsonplaceholder.typicode.com/posts/"
@@ -105,7 +105,7 @@
              @click="dialogFormVisible = true"
               >修改</el-button
             >
-            <el-button type="text" 
+            <el-button type="text"
              @click.native.prevent="deleteRow(scope.$index, tableData)"
               size="small"
               >删除</el-button
@@ -154,7 +154,7 @@
     </el-date-picker>
     </el-form-item>
     <el-form-item class="last">
-      
+
       <el-upload
   class="upload-demo"
   action="https://jsonplaceholder.typicode.com/posts/"
@@ -181,7 +181,7 @@
         <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
       </div>
   </div>
-  
+
 </div>
 </template>
 
@@ -215,7 +215,7 @@ export default {
             }
           }]
         },
-           
+
           value1:'',
           value2:'',
            fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
